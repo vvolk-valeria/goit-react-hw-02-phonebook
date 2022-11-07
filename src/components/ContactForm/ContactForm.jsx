@@ -9,6 +9,7 @@ import {
   Input,
   ErrorInfo,
 } from './ContactForm.styled';
+import PropTypes from 'prop-types';
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -22,7 +23,12 @@ const initialValues = {
 };
 
 const FormError = ({ name }) => {
-  return <ErrorMessage name={name} render={message => <p>{message}</p>} />;
+  return (
+    <ErrorMessage
+      name={name}
+      render={message => <ErrorInfo>{message}</ErrorInfo>}
+    />
+  );
 };
 
 export const ContactForm = ({ onSubmit }) => {
@@ -53,7 +59,7 @@ export const ContactForm = ({ onSubmit }) => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-        <ErrorInfo name="name" component="div" />
+        <FormError name="name" component="div" />
         <Label htmlFor="number">Number</Label>
         <Input
           type="tel"
@@ -62,9 +68,13 @@ export const ContactForm = ({ onSubmit }) => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
-        <ErrorInfo name="number" component="div" />
+        <FormError name="number" component="div" />
         <Btn type="submit">Add contact</Btn>
       </FormContainer>
     </Formik>
   );
+};
+
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };

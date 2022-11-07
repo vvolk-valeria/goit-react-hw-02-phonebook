@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Form, Field, ErrorMessage } from 'formik';
+import { Form, Field } from 'formik';
 
 export const FormContainer = styled(Form)`
   color: rgb(29 107 125);
@@ -42,7 +42,7 @@ export const Btn = styled.button`
   }
 `;
 
-export const ErrorInfo = styled(ErrorMessage)`
+export const ErrorInfo = styled.div`
   position: absolute;
   top: 20px;
   right: 20px;
