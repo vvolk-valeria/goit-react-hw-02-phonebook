@@ -1,6 +1,8 @@
+import { Label, Input, FilterContainer } from './Filter.styled';
+
 export const Filter = ({ onChange }) => (
-  <label>
-    Find contacts by name
-    <input type="text" onChange={onChange} />
-  </label>
+  <FilterContainer>
+    <Label htmlFor="filter">Find contacts by name</Label>
+    <Input type="text" name="filter" onChange={onChange} />
+  </FilterContainer>
 );

@@ -1,15 +1,17 @@
+import { ContainerList, Item, Btn } from './ContactList.styled';
+
 export const ContactList = ({ contacts, deleteContact, onChange }) => (
-  <ul>
+  <ContainerList>
     {contacts.map(contact => {
       return (
-        <li key={contact.id}>
+        <Item key={contact.id}>
           <p>{contact.name}</p>
           <span>{contact.number}</span>
-          <button type="submit" onClick={() => deleteContact(contact.id)}>
+          <Btn type="submit" onClick={() => deleteContact(contact.id)}>
             Delete
-          </button>
-        </li>
+          </Btn>
+        </Item>
       );
     })}
-  </ul>
+  </ContainerList>
 );
