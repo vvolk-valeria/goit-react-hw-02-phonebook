@@ -15,6 +15,7 @@ export const Label = styled.label`
   font-size: 18px;
   margin-bottom: 5px;
 `;
+
 export const Input = styled(Field)`
   margin-bottom: 10px;
   padding: 5px 10px;
